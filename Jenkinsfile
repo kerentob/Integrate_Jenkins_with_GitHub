@@ -1,7 +1,7 @@
 pipeline {
     agent { label 'node1' }
     stages {
-		stage( 'Prepare' ) {
+		stage('Prepare') {
 			steps
 			{
 				print 'Cleanup Workspace'
@@ -21,10 +21,5 @@ pipeline {
 	            sh "/home/ec2-user/scripts/add_date.sh"
             }
         }
-        stage('make previous files on readonly permission') {
-            steps {
-	            sh "/home/ec2-user/scripts/readonly.sh"  
-	        }
-        }	   
     }
 }
