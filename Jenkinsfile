@@ -26,21 +26,5 @@ pipeline {
 	            sh "/home/ec2-user/scripts/readonly.sh"  
 	        }
         }	   
-        stage('build nginx image') {
-            steps
-            {
-              sh """
-	            docker build . -t mynginx  
-            """
-	        }
-        }	
-        stage('run nginx image') {
-            steps
-            {
-              sh """
-	            docker container  run -d --name mynginx -p 80:80 -v /var/lib/jenkins/workspace/pipeline_project/app:/var/www/html -v /var/lib/jenkins/workspace/pipeline_project/default.conf:/etc/nginx/conf.d/default.conf:ro  mynginx 
-            """
-	        }
-        }	
     }
 }
