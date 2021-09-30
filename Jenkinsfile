@@ -1,7 +1,7 @@
 pipeline {
     agent { label 'node1' }
     stages {
-		stage('Prepare') {
+		stage( 'Prepare' ) {
 			steps
 			{
 				print 'Cleanup Workspace'
