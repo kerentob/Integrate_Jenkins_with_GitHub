@@ -1,7 +1,7 @@
 pipeline {
     agent { label 'node1' }
     stages {
-		stage('Prepare') {
+		stage( 'Prepare' ) {
 			steps
 			{
 				print 'Cleanup Workspace'
@@ -14,11 +14,6 @@ pipeline {
         stage('create_files_with_content in adirectory') {
             steps {
                 sh "/home/ec2-user/scripts/create_files_with_content.sh" 
-            }
-        }
-        stage('make previouse stages files adding date, time, timezone ') {
-            steps {
-	            sh "/home/ec2-user/scripts/add_date.sh"
             }
         }
     }
